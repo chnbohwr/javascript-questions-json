@@ -1,0 +1,3 @@
+[submodule "javascript-questions"]
+	path = javascript-questions
+	url = git@github.com:lydiahallie/javascript-questions.git
