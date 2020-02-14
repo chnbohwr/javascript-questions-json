@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "pic": "npx carbon-now-dir ./dist/js -w \"*.js\" -l ./dist/pic"
+    "start": "node index.js && npm run pic",
+    "pic": "node convertImage.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/chnbohwr/javascript-questions-json/issues"
   },
-  "homepage": "https://github.com/chnbohwr/javascript-questions-json#readme"
+  "homepage": "https://github.com/chnbohwr/javascript-questions-json#readme",
+  "dependencies": {
+    "catage": "^1.1.3"
+  }
 }
