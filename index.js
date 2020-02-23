@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const md5 = require('md5');
 
 // generate question absolute path
 const questionPath = path.resolve(__dirname, 'javascript-questions/en-EN/README.md');
@@ -59,6 +60,7 @@ const readlineHandler = (lineString) => {
   if (questionObj.title && isQuestionScopeEnd && recordQuestion) {
     recordQuestion = false;
     questionObj.question = questionJSText;
+    questionObj.id = md5(questionJSText);
     questionJSText = '';
     // console.log('scopeEnd', questionObj);
     return;
@@ -99,9 +101,11 @@ const readlineHandler = (lineString) => {
 }
 questionMarkdown.substr(questionMarkdown.indexOf('######'), questionMarkdown.length).split('\n').forEach(readlineHandler);
 console.log('parse question success, length: ', questions.length);
-fs.mkdirSync(distPath, { recursive: true });
-fs.mkdirSync(jsPath, { recursive: true });
-fs.mkdirSync(picPath, { recursive: true })
+if(!fs.existsSync(distPath)){
+  fs.mkdirSync(distPath, { recursive: true });
+  fs.mkdirSync(jsPath, { recursive: true });
+  fs.mkdirSync(picPath, { recursive: true })
+}
 fs.writeFileSync(distJsonFile, JSON.stringify(questions));
 
 questions.forEach((questionData, questionIndex) => fs.writeFile(path.resolve(jsPath, `question${questionIndex}.js`), questionData.question, () => { }));
