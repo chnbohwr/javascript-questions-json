@@ -13,7 +13,7 @@ const distJsonFile = path.resolve(distPath, 'question.json');
 const questionMarkdown = fs.readFileSync(questionPath).toString();
 
 let questionObj = {};
-let questionJSText = '';
+let questionJSTextArr = [];
 let descText = '';
 let questionOption = [];
 let recordQuestion = false;
@@ -59,24 +59,25 @@ const readlineHandler = (lineString) => {
 
   if (questionObj.title && isQuestionScopeEnd && recordQuestion) {
     recordQuestion = false;
-    questionObj.question = questionJSText;
-    questionObj.id = md5(questionJSText);
-    questionJSText = '';
+    const question = questionJSTextArr.join('\n');
+    questionObj.question = question;
+    questionObj.id = md5(question);
+    questionJSTextArr = [];
     // console.log('scopeEnd', questionObj);
     return;
   }
 
   if (questionObj.title && recordQuestion) {
-    questionJSText += `${lineString}\n`;
+    questionJSTextArr.push(lineString)
     return;
   }
 
-  if (questionObj.question && isOption) {
+  if (isOption) {
     questionOption.push(lineString.substr(2, 999));
     return;
   }
 
-  if (questionObj.question && isAnswer) {
+  if (isAnswer) {
     questionObj.options = questionOption;
     questionOption = [];
     questionObj.answer = answerParser(lineString.substr(13, 1));
