@@ -109,4 +109,4 @@ if(!fs.existsSync(distPath)){
 }
 fs.writeFileSync(distJsonFile, JSON.stringify(questions));
 
-questions.forEach((questionData, questionIndex) => fs.writeFile(path.resolve(jsPath, `question${questionIndex}.js`), questionData.question, () => { }));
+questions.forEach((questionData) => fs.writeFile(path.resolve(jsPath, `${questionData.id}.js`), questionData.question, () => { }));
