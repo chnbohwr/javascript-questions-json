@@ -4,5 +4,4 @@ const config = {
 		return this.languages.push(lang);
 	}
 };
-
 console.log(config.language);

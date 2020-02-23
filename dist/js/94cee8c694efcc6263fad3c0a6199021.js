@@ -10,7 +10,6 @@ const add = () => {
     }
   };
 };
-
 const addFunction = add();
 console.log(addFunction(10));
 console.log(addFunction(10));

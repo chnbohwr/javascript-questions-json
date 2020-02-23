@@ -3,7 +3,6 @@ async function* range(start, end) {
 		yield Promise.resolve(i);
 	}
 }
-
 (async () => {
 	const gen = range(1, 3);
 	for await (const item of gen) {

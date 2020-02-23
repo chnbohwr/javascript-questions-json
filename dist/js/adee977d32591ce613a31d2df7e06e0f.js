@@ -9,7 +9,6 @@ const person = {
 		return `${this.firstName} ${this.lastName}`;
 	}
 };
-
 console.log(person.pet?.name);
 console.log(person.pet?.family?.name);
 console.log(person.getFullName?.());

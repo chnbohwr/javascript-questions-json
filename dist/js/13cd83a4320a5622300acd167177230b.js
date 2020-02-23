@@ -3,5 +3,4 @@ let config = {
     console.log('Alert!')
   }, 1000)
 }
-
 config = null

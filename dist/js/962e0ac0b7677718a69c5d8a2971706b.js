@@ -5,7 +5,6 @@ function* startGame() {
   }
   return "JavaScript loves you back ❤️";
 }
-
 const game = startGame();
 console.log(/* 1 */); // Do you love JavaScript?
 console.log(/* 2 */); // JavaScript loves you back ❤️

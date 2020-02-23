@@ -1,7 +1,6 @@
 function greeting() {
   throw "Hello world!";
 }
-
 function sayHi() {
   try {
     const data = greeting();
@@ -10,5 +9,4 @@ function sayHi() {
     console.log("Oh no an error:", e);
   }
 }
-
 sayHi();

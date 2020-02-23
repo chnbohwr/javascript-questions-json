@@ -5,6 +5,5 @@ const shape = {
   },
   perimeter: () => 2 * Math.PI * this.radius
 };
-
 console.log(shape.diameter());
 console.log(shape.perimeter());

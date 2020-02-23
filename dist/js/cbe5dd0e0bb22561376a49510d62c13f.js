@@ -5,7 +5,5 @@ function compareMembers(person1, person2 = person) {
     console.log("They are the same!")
   }
 }
-
 const person = { name: "Lydia" }
-
 compareMembers(person)

@@ -5,7 +5,5 @@ const colorConfig = {
   black: true,
   yellow: false,
 }
-
 const colors = ["pink", "red", "blue"]
-
 console.log(colorConfig.colors[1])

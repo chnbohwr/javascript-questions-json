@@ -7,5 +7,4 @@ function checkAge(data) {
     console.log(`Hmm.. You don't have an age I guess`);
   }
 }
-
 checkAge({ age: 18 });

@@ -1,4 +1,10 @@
-console.log(two.next().value) // 'a'
-console.log(two.next().value) // 'b'
-console.log(two.next().value) // 'c'
-console.log(two.next().value) // undefined
+function* generatorOne() {
+  yield ['a', 'b', 'c'];
+}
+function* generatorTwo() {
+  yield* ['a', 'b', 'c'];
+}
+const one = generatorOne()
+const two = generatorTwo()
+console.log(one.next().value)
+console.log(two.next().value)

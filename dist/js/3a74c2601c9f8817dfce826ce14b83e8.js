@@ -4,8 +4,6 @@ function checkAge(age) {
   } else {
     const message = "Yay! You're old enough!"
   }
-
   return message
 }
-
 console.log(checkAge(21))
