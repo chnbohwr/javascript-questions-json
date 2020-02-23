@@ -47,6 +47,7 @@ const readlineHandler = (lineString) => {
 
   if (!questionObj.title && isQuestionTitle) {
     questionObj.title = lineString.substr(7, 999);
+    questionObj.id = md5(questionObj.title);
     // console.log('find title', questionObj);
     return;
   }
@@ -61,7 +62,6 @@ const readlineHandler = (lineString) => {
     recordQuestion = false;
     const question = questionJSTextArr.join('\n');
     questionObj.question = question;
-    questionObj.id = md5(question);
     questionJSTextArr = [];
     // console.log('scopeEnd', questionObj);
     return;
