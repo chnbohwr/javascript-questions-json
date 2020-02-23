@@ -56,7 +56,7 @@ const getQuestionAnswer = (questionText) => {
 };
 
 const getQuestionDesc = (questionText) => {
-  const start = questionText.indexOf(/Answer: \w\\n/) + 11;
+  const start = questionText.indexOf('#### Answer:') + 5;
   const end = questionText.indexOf('\n</p>');
   return questionText.slice(start, end);
 };
